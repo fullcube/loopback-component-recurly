@@ -1,0 +1,89 @@
+{
+  "name": "RecurlySubscription",
+  "base": "PersistedModel",
+  "resourceName": "subscriptions",
+  "properties": {
+    "plan_code": {
+      "type": "string",
+      "description": "Plan code for the subscription",
+      "required": true
+    },
+    "account": {
+      "type": "RecurlyAccount",
+      "description": "Nested account attributes",
+      "required": true
+    },
+    "subscription_add_ons": {
+      "type": "string",
+      "description": "Nested add-ons"
+    },
+    "coupon_code": {
+      "type": "string",
+      "description": "Optional coupon code to apply to the new subscription. Please note, the subscription request will fail if the coupon is invalid"
+    },
+    "unit_amount_in_cents": {
+      "type": "string",
+      "description": "Override the unit amount of the subscription plan by setting this value in cents. If not provided, the subscription will inherit the price from the subscription plan for the provided currency. Max 10000000."
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency for the subscription",
+      "required": true
+    },
+    "quantity": {
+      "type": "string",
+      "description": "Optionally override the default quantity of 1"
+    },
+    "trial_ends_at": {
+      "type": "string",
+      "description": "If set, overrides the default trial behavior for the subscription. This must be a date and time, preferably in UTC. The date must be in the future."
+    },
+    "starts_at": {
+      "type": "string",
+      "description": "If set, the subscription will begin in the future on this date. The subscription will apply the setup fee and trial period, unless the plan has no trial."
+    },
+    "total_billing_cycles": {
+      "type": "string",
+      "description": "Renews the subscription for a specified number of cycles, then automatically cancels. Defaults to the subscription renewing indefinitely."
+    },
+    "first_renewal_date": {
+      "type": "string",
+      "description": "Indicates a date at which the first renewal should occur. Subsequent renewals will be offset from this date. The first invoice will be prorated appropriately so that the customer only pays for the portion of the first billing period for which the subscription applies. Useful for forcing a subscription to renew on the first of the month."
+    },
+    "collection_method": {
+      "type": "string",
+      "description": "Optional field to set the collection for an invoice as 'automatic' or 'manual'. The default is 'automatic' if it's not set."
+    },
+    "net_terms": {
+      "type": "string",
+      "description": "Integer representing the number of days after an invoice's creation that the invoice will become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30, it will become past due at 31 days exactly. Defaults to '0'."
+    },
+    "po_number": {
+      "type": "string",
+      "description": "Optional notes field. Attach a PO number to the invoice."
+    },
+    "bulk": {
+      "type": "string",
+      "description": "Optional field to be used only when needing to bypass the 60 second limit on creating subscriptions. Should only be used when creating subscriptions in bulk from the API. Set to 'true' or 'false'. Defaults to 'false'."
+    },
+    "terms_and_conditions": {
+      "type": "string",
+      "description": "Optional notes field. This will default to the Terms and Conditions text specified on the Invoice Settings page in your Recurly admin. Specify custom notes with this tag to add or override Terms and Conditions. Custom notes will stay with a subscription on all renewals."
+    },
+    "customer_notes": {
+      "type": "string",
+      "description": "Optional notes field. This will default to the Customer Notes text specified on the Invoice Settings page in your Recurly admin. Specify custom notes with this tag to add or override Customer Notes. Custom notes will stay with a subscription on all renewals."
+    },
+    "vat_reverse_charge_notes": {
+      "type": "string",
+      "description": "VAT Reverse Charge Notes only appear if you have EU VAT enabled or are using your own Avalara AvaTax account and the customer is in the EU, has a VAT number, and is in a different country than your own. This will default to the VAT Reverse Charge Notes text specified on the Tax Settings page in your Recurly admin, unless custom notes were created with the original subscription. Specify custom notes with this tag to add or override VAT Reverse Charge Notes. Custom notes will stay with a subscription on all renewals."
+    },
+    "bank_account_authorized_at": {
+      "type": "string",
+      "description": "Merchants importing recurring subscriptions paid with ACH into Recurly can backdate the subscription's authorization with this attribute using an iso8601 timestamp. This timestamp is used for alerting customers to reauthorize in 3 years in accordance with NACHA rules. If a subscription becomes inactive or the billing info is no longer a bank account, this timestamp is cleared."
+    }
+  }
+}
+
+
+

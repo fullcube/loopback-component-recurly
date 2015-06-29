@@ -1,0 +1,26 @@
+{
+  "name": "RecurlyTransaction",
+  "base": "PersistedModel",
+  "resourceName": "transactions",
+  "properties": {
+    "account": {
+      "type": "RecurlyAccount",
+      "description": "Nested account attributes",
+      "required": true
+    },
+    "amount_in_cents": {
+      "type": "string",
+      "description": "Amount of the transaction in cents. Max 10000000.",
+      "required": true
+    },
+    "currency": {
+      "type": "string",
+      "description": "3-letter currency for the transaction",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "description": "A description for the transaction. Description is added to the invoiced charge, and not the transaction object"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "_meta": {
+    "sources": [
+      "../common/models",
+      "./models",
+      "../../../../lib/models"
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "name": "RecurlyAccount",
+  "base": "PersistedModel",
+  "resourceName": "accounts",
+  "properties": {
+    "account_code": {
+      "type": "string",
+      "description": "A unique identifier used by your application to identify the account. This code may only contain the following characters: [a-z 0-9 @ - _ .]. Max of 50 characters.",
+      "required": true,
+      "id": true
+    },
+    "username": {
+      "type": "string",
+      "description": "Username, ignore if you do not use usernames. Max of 255 characters."
+    },
+    "email": {
+      "type": "string",
+      "description": "Email address"
+    },
+    "first_name": {
+      "type": "string",
+      "description": "First name. Max of 50 characters."
+    },
+    "last_name": {
+      "type": "string",
+      "description": "Last name. Max of 50 characters."
+    },
+    "company_name": {
+      "type": "string",
+      "description": "Company name. Max of 50 characters."
+    },
+    "vat_number": {
+      "type": "string",
+      "description": "VAT number to avoid having the VAT applied (if applicable)."
+    },
+    "tax_exempt": {
+      "type": "string",
+      "description": "true exempts tax on the account, false applies tax on the account. If not defined, then defaults to the Plan and Site settings."
+    },
+    "entity_use_code": {
+      "type": "string",
+      "description": "Avalara AvaTax value that can be passed to identify the customer type for tax purposes. The range of values can be A - R (more info at Avalara). Value is case-sensitive."
+    },
+    "billing_info": {
+      "type": "RecurlyBillingInfo",
+      "description": "Nested billing information. If present, the account will only be created after the billing information is validated."
+    },
+    "address": {
+      "type": "string",
+      "description": "Nested address information."
+    },
+    "accept_language": {
+      "type": "string",
+      "description": "An ISO 639-1 language code from the user's browser, indicating their preferred language and locale."
+    }
+  }
+}

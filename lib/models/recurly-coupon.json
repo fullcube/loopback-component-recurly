@@ -1,0 +1,63 @@
+{
+  "name": "RecurlyCoupon",
+  "base": "PersistedModel",
+  "resourceName": "coupons",
+  "properties": {
+    "coupon_code": {
+      "type": "string",
+      "description": "Unique code to identify and redeem the coupon. This code may only contain the following characters: [a-z A-Z 0-9 @ - _ .]. Max of 50 characters.",
+      "required": true,
+      "id": true
+    },
+    "name": {
+      "type": "string",
+      "description": "Coupon name",
+      "required": true
+    },
+    "hosted_description": {
+      "type": "string",
+      "description": "Description of the coupon on the hosted payment pages"
+    },
+    "invoice_description": {
+      "type": "string",
+      "description": "Description of the coupon on the invoice"
+    },
+    "redeem_by_date": {
+      "type": "string",
+      "description": "Last date to redeem the coupon, defaults to no date"
+    },
+    "single_use": {
+      "type": "string",
+      "description": "If true, the coupon applies to the first invoice only"
+    },
+    "applies_for_months": {
+      "type": "string",
+      "description": "Number of months after redemption that the coupon is valid, defaults to no date"
+    },
+    "max_redemptions": {
+      "type": "string",
+      "description": "Maximum number of accounts that may use the coupon before it can no longer be redeemed"
+    },
+    "applies_to_all_plans": {
+      "type": "string",
+      "description": "The coupon is valid for all plans if true, defaults to true"
+    },
+    "discount_type": {
+      "type": "string",
+      "description": "'percent' or 'dollars'",
+      "required": true
+    },
+    "discount_percent": {
+      "type": "string",
+      "description": "Discount percentage if discount_type is 'percent'"
+    },
+    "discount_in_cents": {
+      "type": "string",
+      "description": "Mapping of discount amounts by currency if discount_type is 'dollars'. Max 10000000."
+    },
+    "plan_codes": {
+      "type": "string",
+      "description": "Array of plan_codes the coupon applies to, if applies_to_all_plans is false"
+    }
+  }
+}
