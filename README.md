@@ -1,6 +1,8 @@
 loopback-component-recurly
 ==============================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/fullcube/loopback-component-recurly.svg)](https://greenkeeper.io/)
+
 Connect Loopback with Recurly.
 
 INSTALL
