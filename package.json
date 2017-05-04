@@ -18,11 +18,11 @@
     "lodash": "latest"
   },
   "devDependencies": {
-    "bluebird": "2.9.24",
+    "bluebird": "3.5.0",
     "chai": "latest",
-    "jscs": "1.13.x",
+    "jscs": "~3.0.7",
     "jshint": "latest",
-    "loopback": "2.x",
+    "loopback": "^3.8.0",
     "loopback-connector-rest": "git://github.com/mrfelton/loopback-connector-rest.git#427fdc42ede895773c375ce360325cd4f485604c",
     "loopback-boot": ">=2.8.2",
     "loopback-explorer": ">=1.8.0",
